@@ -1,6 +1,6 @@
 import React from "react";
 
-const Search = ({Onchange}) => {
+const Search = ({ Onchange }) => {
   return (
     <div>
       <input

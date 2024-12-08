@@ -1,13 +1,10 @@
 import React from "react";
 import { useContext } from "react";
 
-
-import {CountryContext } from "../../Context/CountryContext";
-
+import { CountryContext } from "../../Context/CountryContext";
 
 const CountryPage = () => {
-
-  const {Country} = useContext(CountryContext);
+  const { Country } = useContext(CountryContext);
   const { flags, name, population, region, capital } = Country;
   return (
     <div

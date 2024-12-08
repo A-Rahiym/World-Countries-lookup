@@ -16,7 +16,9 @@ const CountryCard = ({ country }) => {
           className=" bg-slate-50 shadow-lg justify-center items-center m-2 max-w-sm  bg-gray border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           onClick={CountryPage}
         >
-          <img className="w-full" src={flags.png} />
+          <div className="flex flex-wrap gap-4">
+            <img className="w-full  h-32 obj" src={flags.png} />
+          </div>
           <div className="p-2">
             <p className=" text-xl font-bold text-center py-1 text-wrap">
               {name}
