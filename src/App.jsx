@@ -1,4 +1,3 @@
-import "./App.scss";
 import Home from "./Routes/Home/Home";
 import CountryPage from "./Routes/CountryPage/CountryPage";
 import { Route, Routes } from "react-router";
