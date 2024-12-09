@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import CountryCard from "../../assets/components/countryCard";
 import Search from "../../assets/components/Search";
 import { Countries } from "../../data";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const Home = () => {
   const [searchedCountry, setSearchedcountry] = useState("");
@@ -19,11 +20,22 @@ const Home = () => {
   };
   return (
     <div>
-      <Search Onchange={handlesearch} />
-      <div className=" grid grid-cols-4 ">
-        {filteredsearch.map((country) => (
-          <CountryCard country={country} key={country.name} />
-        ))}
+      <div className="flex relative p-5  bg-slate-100 justify-between align-middle shadow-lg">
+        <h3 className="  pl-3 font-bold ">World Countries</h3>
+        <div className="flex space-x-5 align-middle justify-between py-1">
+          <span>light mode</span>
+          <FiSun size={18} />
+        </div>
+      </div>
+      <div className="flex flex-col ">
+        <div className="flex justify-end ">
+          <Search Onchange={handlesearch} />
+        </div>
+        <div className=" grid grid-cols-4">
+          {filteredsearch.map((country) => (
+            <CountryCard country={country} key={country.name} />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -4,9 +4,9 @@ const Search = ({ Onchange }) => {
   return (
     <div>
       <input
-        className="border-spacing-4 p-8 m-2 shadow-lg relative"
+        className="border-spacing-4  m-2 my-4 p-1  relative rounded-sm"
         type="text"
-        placeholder="search..."
+        placeholder=" search..."
         onChange={Onchange}
       />
     </div>

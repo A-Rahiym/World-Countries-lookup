@@ -13,11 +13,12 @@ const CountryCard = ({ country }) => {
     <>
       <Link to={"/countryPage"}>
         <div
-          className=" bg-slate-50 shadow-lg justify-center items-center m-2 max-w-sm  bg-gray border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          className=" bg-slate-50 shadow-lg justify-center items-center m-2 max-w-sm  bg-gray border border-gray-200 rounded-lg dark:border-gray-300"
           onClick={CountryPage}
         >
-          <div className="flex flex-wrap gap-4">
-            <img className="w-full  h-32 obj" src={flags.png} />
+          <div className="flex flex-wrap">
+            <img className="w-full  h-40
+            " src={flags.png} />
           </div>
           <div className="p-2">
             <p className=" text-xl font-bold text-center py-1 text-wrap">
