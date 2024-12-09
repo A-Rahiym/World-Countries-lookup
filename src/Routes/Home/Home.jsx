@@ -20,10 +20,10 @@ const Home = () => {
   };
   return (
     <div>
-      <div className="flex relative p-5  bg-slate-100 justify-between align-middle shadow-lg">
+      <div className="flex relative p-5  bg-slate-100 justify-between align-middle shadow-slate-300">
         <h3 className="  pl-3 font-bold ">World Countries</h3>
-        <div className="flex space-x-5 align-middle justify-between py-1">
-          <span>light mode</span>
+        <div className="flex space-x-4 align-middle justify-between py-1 text-">
+          <span className="text-xs">light mode</span>
           <FiSun size={18} />
         </div>
       </div>
