@@ -19,8 +19,11 @@ const Home = () => {
   };
   return (
     <div>
+      <div className="flex relative mb-3 bg-zinc-600 justify-between text-center">
+        <h3 className="text-4xl mt-4">World</h3>
       <Search Onchange={handlesearch} />
-      <div className=" grid grid-cols-4 ">
+      </div>
+      <div className=" grid grid-cols-5">
         {filteredsearch.map((country) => (
           <CountryCard country={country} key={country.name} />
         ))}
