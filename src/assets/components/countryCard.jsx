@@ -2,7 +2,7 @@ import { React, useContext } from "react";
 import { Link } from "react-router";
 import { CountryContext } from "../../Context/CountryContext";
 
-const CountryCard = ({ country }) => {
+const CountryCard = ({country}) => {
   const { setCountry } = useContext(CountryContext);
 
   const CountryPage = () => {
