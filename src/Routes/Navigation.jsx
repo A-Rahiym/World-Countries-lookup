@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { Outlet } from "react-router";
 
 const Navigation = () => {
   const [mode, setMode] = useState(false);
 
+  const [a , setA] = useState([])
+  useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all").then(response => response.json()).then(data => setA(data))
+    console.log(a)
+  }
+  , [])
+  
   const changeMode = () => {
     setMode((prev) => !prev);
   };
