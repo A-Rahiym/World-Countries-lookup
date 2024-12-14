@@ -1,28 +1,35 @@
 import { useEffect, useState, useContext } from "react";
 import CountryCard from "../assets/components/countryCard";
 import Search from "../assets/components/Search";
-import { Countries } from "../data";
+import { countries } from "../data";
 import { FiSun, FiMoon } from "react-icons/fi";
 import SelectedRegion from "../assets/components/SelectedRegion";
+
 import {
   RegionContext,
   FilteredRegionContext,
+  CountryContext,
 } from "../Context/CountryContext";
-import Navigation from "./Navigation";
 
 const Home = () => {
   const { Selectedregion } = useContext(RegionContext);
+  const { Countries, setCountries } = useContext(CountryContext);
 
   const [searchedCountry, setSearchedcountry] = useState("");
-  const [countries, setCountries] = useState(Countries);
-
   const [filteredRegion, setFilteredRegion] = useState([]);
+
+  useEffect(() => {
+    setCountries(countries)
+  }, [])
+  
 
   useEffect(() => {
     const filtered = Countries.filter((country) => {
       return country.name.toLowerCase().includes(searchedCountry);
     });
     setCountries(filtered);
+    console.log(Countries);
+
   }, [searchedCountry]);
 
   useEffect(() => {

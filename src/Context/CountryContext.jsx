@@ -1,8 +1,17 @@
 import { createContext, useState } from "react";
+import { countries } from "../data";
+
 
 export const CountryContext = createContext({
+  Countries: [],
+  Country: {}
+});
+
+
+export const CountriesContext = createContext({
   Country: {},
 });
+
 
 export const RegionContext = createContext({
   Selectedregion: "",
@@ -14,11 +23,19 @@ export const FilteredRegionContext = createContext({
 
 export const CountryProvider = ({ children }) => {
   const [Country, setCountry] = useState({});
-  const value = { Country, setCountry };
+  
+  const [Countries, setCountries] = useState(countries);
+
+  const value = { Country, Countries, setCountry, setCountries };
   return (
     <CountryContext.Provider value={value}>{children}</CountryContext.Provider>
   );
 };
+
+
+
+
+
 
 
 
