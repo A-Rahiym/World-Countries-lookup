@@ -1,11 +1,11 @@
-import { useContext} from "react";
+import { useContext } from "react";
 import { countries } from "../data";
 import { CountryContext } from "../Context/CountryContext";
 import { Link } from "react-router";
 import { FiArrowLeft } from "react-icons/fi";
 
 const CountryPage = () => {
-  const { Country,setCountry } = useContext(CountryContext);
+  const { Country, setCountry } = useContext(CountryContext);
   const { flags, name, population, region, capital, borders, alpha3Code } =
     Country;
 
@@ -20,7 +20,7 @@ const CountryPage = () => {
   return (
     <div className="max-h-svh h-full flex flex-col">
       <Link to={"/home"}>
-        <button className="flex  justify-between m-5 py-2 px-4 space-x-2 bg-white shadow hover:bg-slate-200 rounded">
+        <button className="flex  justify-between m-5 py-3 px-4 space-x-2 bg-white shadow hover:bg-slate-200 rounded ">
           <FiArrowLeft size={20}></FiArrowLeft>
           <span>back</span>
         </button>
@@ -75,7 +75,7 @@ const CountryPage = () => {
             <div className="flex w-1/4  justify-between space-x-3">
               {borders.map((border) => (
                 <button
-                  className="items-start my-2 py-2 px-10 bg-white shadow"
+                  className="items-start my-2 py-2 px-10 bg-white shadow  hover:bg-slate-200 rounded"
                   key={border}
                   value={border}
                   onClick={setCountryByCode}

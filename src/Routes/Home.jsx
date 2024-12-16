@@ -9,20 +9,13 @@ import { RegionContext, CountryContext } from "../Context/CountryContext";
 const Home = () => {
   const { Selectedregion } = useContext(RegionContext);
   const { Countries, setCountries } = useContext(CountryContext);
-
   const [searchedCountry, setSearchedcountry] = useState("");
-  const [setFilteredRegion] = useState([]);
-
-  useEffect(() => {
-    setCountries(countries);
-  }, []);
 
   useEffect(() => {
     const filtered = countries.filter((country) => {
       return country.name.toLowerCase().includes(searchedCountry);
     });
     setCountries(filtered);
-    // console.log(Countries);
   }, [searchedCountry]);
 
   useEffect(() => {
@@ -32,16 +25,6 @@ const Home = () => {
     Selectedregion && setCountries(filtered);
     console.log(Countries);
   }, [Selectedregion]);
-
-  useEffect(() => {
-    setFilteredRegion([
-      ...new Set(
-        Countries.map((country) => {
-          return country.region;
-        }),
-      ),
-    ]);
-  }, []);
 
   const handlesearch = (e) => {
     setSearchedcountry(e.target.value);
