@@ -26,9 +26,11 @@ const Home = () => {
     console.log(Countries);
   }, [Selectedregion]);
 
+  
   const handlesearch = (e) => {
     setSearchedcountry(e.target.value);
   };
+
 
   return (
     <div>

@@ -7,7 +7,11 @@ const CountryCard = ({country}) => {
 
   const CountryPage = () => {
     setCountry(country);
+    localStorage.setItem("country", JSON.stringify(country))
   };
+  
+
+
   const { flags, name, population, region, capital } = country;
   return (
     <>

@@ -9,6 +9,9 @@ const CountryPage = () => {
   const { flags, name, population, region, capital, borders, alpha3Code } =
     Country;
 
+
+
+    
   const setCountryByCode = (event) => {
     setCountry(() => {
       return countries.find(
