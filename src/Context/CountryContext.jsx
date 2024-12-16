@@ -3,7 +3,7 @@ import { countries } from "../data";
 
 
 export const CountryContext = createContext({
-  Countries: [],
+  Countries: countries,
   Country: {}
 });
 
@@ -31,13 +31,6 @@ export const CountryProvider = ({ children }) => {
     <CountryContext.Provider value={value}>{children}</CountryContext.Provider>
   );
 };
-
-
-
-
-
-
-
 
 export const RegionProvider = ({ children }) => {
   const [Selectedregion, setSelectedregion] = useState("");

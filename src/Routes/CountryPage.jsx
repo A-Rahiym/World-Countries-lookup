@@ -1,33 +1,32 @@
-import React from "react";
-import { useContext, useState, useEffect } from "react";
-
+import { useContext} from "react";
+import { countries } from "../data";
 import { CountryContext } from "../Context/CountryContext";
 import { Link } from "react-router";
+import { FiArrowLeft } from "react-icons/fi";
 
 const CountryPage = () => {
-  const { Country, Countries, setCountry } = useContext(CountryContext);
+  const { Country,setCountry } = useContext(CountryContext);
   const { flags, name, population, region, capital, borders, alpha3Code } =
     Country;
 
   const setCountryByCode = (event) => {
     setCountry(() => {
-      return Countries.find(
+      return countries.find(
         (country) => country.alpha3Code === event.target.value,
       );
     });
   };
-  
 
   return (
-    <div className="max-h-svh h-full ">
+    <div className="max-h-svh h-full flex flex-col">
       <Link to={"/home"}>
-        <button className="items-start m-5 py-2 px-10 bg-white shadow">
-          Back
+        <button className="flex  justify-between m-5 py-2 px-4 space-x-2 bg-white shadow hover:bg-slate-200 rounded">
+          <FiArrowLeft size={20}></FiArrowLeft>
+          <span>back</span>
         </button>
       </Link>
       <div className=" w-full flex flex-row justify-start ml-5 p-6 pt-20 pb-48 h-11/12">
         <img className=" bg-cover lg:rounded-l mr-10 w-1/2 " src={flags.png} />
-
         <div className="ml-28 flex flex-col  w-full justify-around space-y-5">
           <div className="w-full">
             <h2 className="text-gray-900 font-bold text-3xl mb-2 m-y-8">

@@ -2,41 +2,35 @@ import { useEffect, useState, useContext } from "react";
 import CountryCard from "../assets/components/countryCard";
 import Search from "../assets/components/Search";
 import { countries } from "../data";
-import { FiSun, FiMoon } from "react-icons/fi";
 import SelectedRegion from "../assets/components/SelectedRegion";
 
-import {
-  RegionContext,
-  FilteredRegionContext,
-  CountryContext,
-} from "../Context/CountryContext";
+import { RegionContext, CountryContext } from "../Context/CountryContext";
 
 const Home = () => {
   const { Selectedregion } = useContext(RegionContext);
   const { Countries, setCountries } = useContext(CountryContext);
 
   const [searchedCountry, setSearchedcountry] = useState("");
-  const [filteredRegion, setFilteredRegion] = useState([]);
+  const [setFilteredRegion] = useState([]);
 
   useEffect(() => {
-    setCountries(countries)
-  }, [])
-  
+    setCountries(countries);
+  }, []);
 
   useEffect(() => {
-    const filtered = Countries.filter((country) => {
+    const filtered = countries.filter((country) => {
       return country.name.toLowerCase().includes(searchedCountry);
     });
     setCountries(filtered);
-    console.log(Countries);
-
+    // console.log(Countries);
   }, [searchedCountry]);
 
   useEffect(() => {
-    const filtered = Countries.filter((country) => {
+    const filtered = countries.filter((country) => {
       return country.region === Selectedregion;
     });
     Selectedregion && setCountries(filtered);
+    console.log(Countries);
   }, [Selectedregion]);
 
   useEffect(() => {
@@ -61,7 +55,7 @@ const Home = () => {
           <SelectedRegion countryArray={countries} />
         </div>
         <div className=" grid lg:grid-cols-4 gap-0 sm:grid-cols-2">
-          {countries.map((country) => (
+          {Countries.map((country) => (
             <CountryCard country={country} key={country.name} />
           ))}
         </div>

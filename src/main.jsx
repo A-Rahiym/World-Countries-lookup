@@ -20,5 +20,5 @@ createRoot(document.getElementById("root")).render(
         </RegionProvider>
       </FilteredRegionProvider>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 );

@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import { useContext } from "react";
-
+import  { useEffect, useContext } from "react";
 import {
   RegionContext,
   FilteredRegionContext,
