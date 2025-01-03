@@ -22,12 +22,7 @@ export const FilteredRegionContext = createContext({
 });
 
 export const CountryProvider = ({ children }) => {
-  const [Country, setCountry] = useState(
-    () => {
-      const savedCountry = localStorage.getItem("country");
-      return savedCountry ? JSON.parse(savedCountry) : null ;
-    }
-  );
+  const [Country, setCountry] = useState({});
   
   const [Countries, setCountries] = useState(countries);
 

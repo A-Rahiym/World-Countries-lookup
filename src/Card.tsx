@@ -1,14 +1,29 @@
 import { React, useContext } from "react";
 import { Link } from "react-router";
-import { CountryContext } from "../../Context/CountryContext";
+import { CountryContext } from "./Context/CountryContext"; 
 
-const CountryCard = ({country}) => {
+type countryprop = {
+  flags:string,
+  name:string,
+  population:string,
+  region:string,
+  capital:string
+}
+
+
+type countryCardProp = {
+country: countryprop
+}
+
+
+const Card = ({country} : countryCardProp) => {
   const { setCountry } = useContext(CountryContext);
 
   const CountryPage = () => {
     setCountry(country);
+    localStorage.setItem("country", JSON.stringify(country))
   };
-  const { flags, name, population, region, capital } = country;
+   const { flags, name, population, region, capital } = country;
   return (
     <>
       <Link to={"/countryPage"}>
@@ -49,4 +64,4 @@ const CountryCard = ({country}) => {
     </>
   );
 };
-export default CountryCard;
+export default Card;

@@ -3,19 +3,26 @@ import CountryCard from "../assets/components/countryCard";
 import Search from "../assets/components/Search";
 import { countries } from "../data";
 import SelectedRegion from "../assets/components/SelectedRegion";
-
 import { RegionContext, CountryContext } from "../Context/CountryContext";
+import Card from "../Card";
 
 const Home = () => {
   const { Selectedregion } = useContext(RegionContext);
   const { Countries, setCountries } = useContext(CountryContext);
+
   const [searchedCountry, setSearchedcountry] = useState("");
+  const [FilteredRegion, setFilteredRegion] = useState([]);
+
+  useEffect(() => {
+    setCountries(countries);
+  }, []);
 
   useEffect(() => {
     const filtered = countries.filter((country) => {
       return country.name.toLowerCase().includes(searchedCountry);
     });
     setCountries(filtered);
+    // console.log(Countries);
   }, [searchedCountry]);
 
   useEffect(() => {
@@ -26,23 +33,32 @@ const Home = () => {
     console.log(Countries);
   }, [Selectedregion]);
 
-  
+  useEffect(() => {
+    setFilteredRegion([
+      ...new Set(
+        Countries.map((country) => {
+          return country.region;
+        }),
+      ),
+    ]);
+  }, []);
+
   const handlesearch = (e) => {
     setSearchedcountry(e.target.value);
   };
 
-
   return (
     <div>
-      <div className="flex flex-col  w-full">
+      <div className="flex flex-col w-full">
         <div className="flex justify-between">
           <Search Onchange={handlesearch} />
           <SelectedRegion countryArray={countries} />
         </div>
         <div className=" grid lg:grid-cols-4 gap-0 sm:grid-cols-2">
-          {Countries.map((country) => (
+          {Countries.map((country) =>
             <CountryCard country={country} key={country.name} />
-          ))}
+            // console.log(country.flag),
+          )}
         </div>
       </div>
     </div>
